@@ -1,0 +1,4 @@
+indent_type = "Space"
+quote_type = "Double"
+line_endings = "Unix"
+column_width = 120
