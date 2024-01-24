@@ -56,10 +56,10 @@ return {
 
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.close(),
-        ['<CR>'] = cmp.mapping.confirm({
-          behavior = cmp.ConfirmBehavior.Replace,
+        ['<tab>'] = cmp.mapping.confirm({
           select = true,
         }),
+        after = cmp.mapping.confirm({ select = true }),
       }),
       sources = {
         { name = 'nvim_lsp' },
