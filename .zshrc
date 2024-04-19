@@ -5,11 +5,21 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+alias cbt='export MAKEFLAGS="-DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=1" && colcon build --symlink-install'
+alias cbs='export MAKEFLAGS="-DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=1" && colcon build --symlink-install --packages-up-to'
+
+eval "$(zoxide init zsh)"
+
+bindkey -s ^f "tmux-sessionizer\n"
+
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+
+PATH="$PATH":"$HOME/.local/scripts/"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -81,7 +91,7 @@ plugins=(git
 	 web-search
 	 zsh-autosuggestions
 	 zsh-syntax-highlighting
-	 tmux)
+	)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -112,6 +122,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 alias vim="nvim"
+alias ws="cd ~/../../var/ws_git"
+alias lzg="lazygit"
 
 #ros
 source /opt/ros/foxy/setup.zsh
@@ -124,19 +136,6 @@ source /home/nicolas_lauzon/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fpath+=${ZDOTDIR:-~}/.zsh_functions
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/nicolas_lauzon/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/nicolas_lauzon/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/nicolas_lauzon/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/nicolas_lauzon/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
