@@ -18,8 +18,13 @@ return {
       renderer = {
         group_empty = true,
       },
+      git = {
+        ignore = false,
+        enable = true,
+      },
       filters = {
         dotfiles = true,
+        custom = { '.git', '.cache', 'build', 'log', 'install' },
       },
     })
   end,

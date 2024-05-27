@@ -11,7 +11,7 @@ keymap.set('n', '<leader>s', '<cmd>Telescope live_grep<cr>') -- find string in c
 keymap.set('n', '<leader>f', '<cmd>Telescope grep_string<cr>') -- find string under cursor in current working directory
 
 -- nvim-tree
-keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<cr>')
+keymap.set('n', '<leader>e', '<cmd>NvimTreeFocus<cr>')
 
 -- vertical nav
 vim.keymap.set('n', '<C-d>', '<C-d>zz')

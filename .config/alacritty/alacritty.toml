@@ -12,7 +12,7 @@ TERM = "xterm-256color"
 opacity = 1.0
 
 [font]
-size = 11.0
+size = 8.0
 normal = { family = "Fira Code", style = "Regular" }
 bold = { family = "Fira Code", style = "Bold" }
 italic = { family = "Fira Code", style = "Italic" }
