@@ -12,9 +12,10 @@ TERM = "xterm-256color"
 opacity = 1.0
 
 [font]
-size = 8.0
-normal = { family = "Fira Code", style = "Regular" }
-bold = { family = "Fira Code", style = "Bold" }
-italic = { family = "Fira Code", style = "Italic" }
-bold_italic = { family = "Fira Code", style = "Bold Italic" }
+size = 11.0
+
+normal = { family = "MesloLGS NF", style = "Regular" }
+bold = { family = "MesloLGS NF", style = "Bold" }
+italic = { family = "MesloLGS NF", style = "Regular Italic" }
+bold_italic = { family = "MesloLGS NF", style = "Bold Italic" }
 
