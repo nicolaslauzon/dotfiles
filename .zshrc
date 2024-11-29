@@ -2,14 +2,21 @@
 alias cbt='colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=1 --cmake-force-configure --symlink-install'
 alias cbs='colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=1 --cmake-force-configure --symlink-install --packages-select'
 
+alias foxgluvv='ros2 launch foxglove_bridge foxglove_bridge_launch.xml'
+
 # export CXX=clang++
 # export CC=clang
 bindkey -s ^f "tmux-sessionizer\n"
+
 alias vim="nvim"
 alias lzg="lazygit"
-PATH="$PATH":"$HOME/.local/scripts/"
-source /opt/ros/jazzy/setup.zsh
+alias left="xrandr --output HDMI-A-0 --auto --left-of eDP"
+alias right="xrandr --output HDMI-A-0 --auto --right-of eDP"
+alias top="xrandr --output HDMI-A-0 --auto --above eDP"
 
+
+
+# PATH="$PATH":"$HOME/.local/scripts/"
 
 # powerlevel10k
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -21,12 +28,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # oh-my-zsh
 export ZSH="$HOME/.oh-my-zsh"
-plugins=(git 
-  tmux)
-ZSH_TMUX_AUTOSTART=true
+plugins=(git zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
-
-
 
 
 # fzf
@@ -41,3 +44,19 @@ export NVM_DIR="$HOME/.nvm"
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+source /opt/ros/jazzy/setup.zsh
+
+eval "$(register-python-argcomplete ros2)"
+eval "$(register-python-argcomplete colcon)"
+
+source /opt/intel/oneapi/setvars.sh > /dev/null
+
+alias configurathor="env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
+
+eval "$(zoxide init zsh)"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+

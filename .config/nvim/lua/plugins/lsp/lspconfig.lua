@@ -1,7 +1,19 @@
 return {
   {
+    'williamboman/mason.nvim',
+    dependencies = {
+      'williamboman/mason-lspconfig.nvim',
+    },
+    config = function()
+      require('mason').setup()
+
+      require('mason-lspconfig').setup({
+        ensure_installed = { 'lua_ls', 'ts_ls', 'pyright', 'clangd', 'jdtls' },
+      })
+    end
+  },
+  {
     'neovim/nvim-lspconfig',
-    lazy = false,
     dependencies = {
       'hrsh7th/cmp-nvim-lsp',
     },
@@ -35,7 +47,7 @@ return {
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
       end
 
-      lspconfig.tsserver.setup({
+      lspconfig.ts_ls.setup({
         capabilites = lsp_capabilities,
       })
       lspconfig.lua_ls.setup({
@@ -48,11 +60,20 @@ return {
           },
         },
       })
-      lspconfig.pyright.setup({
-        capabilites = lsp_capabilities,
-      })
       lspconfig.clangd.setup({
         capabilites = lsp_capabilities,
+      })
+      lspconfig.pyright.setup({
+        capabilites = lsp_capabilities,
+        settings = {
+          python = {
+            analysis = {
+              autoSearchPaths = true,
+              useLibraryCodeForTypes = true,
+              diagnosticMode = 'openFilesOnly',
+            },
+          },
+        }
       })
     end,
   },

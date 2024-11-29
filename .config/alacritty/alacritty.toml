@@ -1,5 +1,6 @@
 import = [
   "~/.config/alacritty/catppuccin-mocha.toml",
+  # "~/.config/alacritty/catppuccin-latte.toml",
 ]
   
 shell = "/usr/bin/zsh"
@@ -12,7 +13,7 @@ TERM = "xterm-256color"
 opacity = 1.0
 
 [font]
-size = 11.0
+size = 9.0
 
 normal = { family = "MesloLGS NF", style = "Regular" }
 bold = { family = "MesloLGS NF", style = "Bold" }

@@ -2,9 +2,10 @@ set $mod Mod4
 
 font pango:Inconsolata 13
 
-exec --no-startup-id feh --no-fehbg --bg-fill ~/wallpaper.jpg
+# exec --no-startup-id feh --no-fehbg --bg-fill ~/wallpaper.jpg
+exec --no-startup-id feh --no-fehbg --bg-fill ~/tokyo.jpg
 
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 exec --no-startup-id nm-applet
 
@@ -16,8 +17,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 
 # displays
-exec --no-startup-id xrandr --output HDMI-A-0 --auto --left-of eDP
-# exec --no-startup-id xrandr --output HDMI-A-0 --auto --above eDP
+# exec --no-startup-id xrandr --output HDMI-A-0 --auto --left-of eDP
+exec --no-startup-id xrandr --output HDMI-A-0 --auto --above eDP
 workspace 1 output HDMI-A-0
 workspace 2 output eDP
 
