@@ -23,7 +23,7 @@ workspace 1 output HDMI-A-0
 workspace 2 output eDP
 
 # langages
-exec --no-startup-id setxkbmap -layout us,ca -option -option grp:win_space_toggle
+exec --no-startup-id setxkbmap -layout us,ca -option grp:win_space_toggle
 
 # keybinds
 
