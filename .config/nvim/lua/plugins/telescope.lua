@@ -11,6 +11,7 @@ return {
 
     config = function()
       local actions = require('telescope.actions')
+      local builtin = require('telescope.builtin')
 
       require('telescope').setup({
         defaults = {
@@ -24,12 +25,15 @@ return {
               ['<C-k>'] = actions.move_selection_previous, -- move to prev result
               ['<C-j>'] = actions.move_selection_next, -- move to next result
             },
+            n = {
+              ['<C-p>'] = builtin.git_files,
+            },
           },
           file_ignore_patterns = {
-            "node_modules",
-            "build",
-            "install",
-            "log",
+            'node_modules',
+            'build',
+            'install',
+            'log',
           },
         },
       })
