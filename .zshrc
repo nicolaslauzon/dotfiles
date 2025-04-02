@@ -1,8 +1,7 @@
 # User config
-alias cbt='colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=1 --cmake-force-configure --symlink-install'
-alias cbs='colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=1 --cmake-force-configure --symlink-install --packages-select'
+alias cbt='colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=1 --cmake-force-configure --symlink-install --parallel-workers $(nproc)'
+alias cbs='colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=1 --cmake-force-configure --symlink-install --packages-select --parallel-workers $(nproc)'
 alias foxgluvv='ros2 launch foxglove_bridge foxglove_bridge_launch.xml'
-
 
 alias vim="nvim"
 alias lzg="lazygit"
@@ -70,10 +69,21 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init -)"
 
 source /opt/ros/jazzy/setup.zsh
+source /home/nicolaslauzon/ros2_ws/install/setup.zsh
 
-eval "$(register-python-argcomplete ros2)"
-eval "$(register-python-argcomplete colcon)"
 
 
 alias configurathor="env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
 
+export QT_PLUGIN_PATH=$(qmake -query QT_INSTALL_PLUGINS)
+export QML2_IMPORT_PATH=/usr/lib/x86_64-linux-gnu/qt5/qml
+export QT_QPA_PLATFORM_PLUGIN_PATH=/usr/lib/x86_64-linux-gnu/qt5/plugins/platforms
+
+eval "$(register-python-argcomplete ros2)"
+eval "$(register-python-argcomplete colcon)"
+
+export PATH="/home/nicolaslauzon/flutter/bin:${PATH}"
+. "/home/nicolaslauzon/.deno/env"
+
+# export PYTHONPATH=/home/nicolaslauzon/.pyenv/versions/ros2/lib/python3.12/site-packages:$PYTHONPATH
+alias ifconfig="ip -c a | sed -e 's/\// \//g'" 
