@@ -35,3 +35,5 @@ eval "$(pyenv init -)"
 eval "$(zoxide init zsh)"
 
 alias ifconfig="ip -c a | sed -e 's/\// \//g'" 
+
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
