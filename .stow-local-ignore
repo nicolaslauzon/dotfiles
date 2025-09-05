@@ -2,4 +2,6 @@
 ^/INSTALLATION.md
 ^/P10k.bash
 ^/lazy-lock.json
+^/system-setup.sh
+^/packages.txt
 ^/.git

@@ -9,7 +9,8 @@ xset +dpms dpms 0 0 5
 scrot -d 1 /tmp/locking_screen.png
 
 convert -blur 0x8 /tmp/locking_screen.png /tmp/screen_blur.png
-convert -composite /tmp/screen_blur.png ~/obelix.png -gravity South -geometry -20x1200 /tmp/screen.png
+convert /tmp/screen_blur.png /tmp/obelix_big.png -gravity South -geometry +0+50 -composite /tmp/screen.png
+
 
 i3lock -i /tmp/screen.png
 revert
