@@ -17,7 +17,7 @@ bold_italic = { family = "MesloLGS NF", style = "Bold Italic" }
 live_config_reload = true
 import = [
   "~/.config/alacritty/catppuccin-mocha.toml",
-  # "~/.config/alacritty/catppuccin-latte.toml",
+  #"~/.config/alacritty/catppuccin-latte.toml",
 ]
 
 [terminal]

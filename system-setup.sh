@@ -13,7 +13,13 @@ xargs -a packages.txt sudo apt-get install -y
 
 echo "Press Enter to continue..."
 read dummy
+echo "==============================================Installing Neovim dependencies=================================="
+# Install ripgrep and fd-find for Telescope
+echo "Installing ripgrep and fd-find for Telescope..."
+sudo apt-get install -y ripgrep fd-find
 
+echo "Press Enter to continue..."
+read dummy
 echo "==============================================Installing VimPlug============================================="
 # 1. Install vim-plug if missing
 PLUG_FILE="$HOME/.vim/autoload/plug.vim"
@@ -80,6 +86,39 @@ if [ ! -d "$HOME/.pyenv" ]; then
 else
 	echo "Pyenv already installed"
 fi
+
+echo "Press Enter to continue..."
+read dummy
+
+echo "==============================================Installing Node.js via nvm===================================="
+if [ ! -d "$HOME/.nvm" ]; then
+	echo "Installing NVM..."
+	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+	export NVM_DIR="$HOME/.nvm"
+	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+	
+	echo "Installing Node.js LTS..."
+	nvm install --lts
+	nvm use --lts
+	
+	echo "Installing neovim npm package..."
+	npm install -g neovim
+else
+	echo "NVM already installed"
+	# Ensure neovim package is installed
+	if command -v npm > /dev/null 2>&1; then
+		echo "Installing/updating neovim npm package..."
+		npm install -g neovim
+	fi
+fi
+
+echo "Press Enter to continue..."
+read dummy
+
+echo "==============================================Updating pynvim============================================="
+# Update pynvim to latest version for Neovim Python provider
+echo "Updating pynvim..."
+python3 -m pip install --user --upgrade --break-system-packages pynvim 2>/dev/null || echo "Note: May need to run 'python3 -m pip install --user --upgrade pynvim' manually"
 
 echo "Press Enter to continue..."
 read dummy
@@ -159,4 +198,9 @@ read dummy
 echo "==============================================Setting default shell============================================"
 chsh -s $(which zsh)
 
-echo "Now restart restart your computer!"
+echo "=========================================================================================================="
+echo "Setup complete! Next steps:"
+echo "1. Restart your computer"
+echo "2. Open Neovim and run :Mason to install formatters (black, prettier, stylua, clang-format)"
+echo "3. Run :checkhealth in Neovim to verify all dependencies"
+echo "=========================================================================================================="
