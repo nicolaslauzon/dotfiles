@@ -5,6 +5,7 @@ alias foxgluvv='ros2 launch foxglove_bridge foxglove_bridge_launch.xml'
 
 export CXX=clang++
 export CC=clang
+export TERMINAL=kitty
 
 navigathor() {
     local dir=$(find "$HOME/vaul" "$HOME/norlab" -mindepth 1 -maxdepth 1 -type d 2>/dev/null | fzf)
@@ -62,3 +63,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 . "$HOME/.cargo/env"
+
+# opencode
+export PATH=/home/nicolas-lauzon/.opencode/bin:$PATH
